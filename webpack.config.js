@@ -16,10 +16,6 @@ module.exports = {
           from: "src/*.html",
           to: "[name][ext]",
         },
-        {
-          from: "src/*.css",
-          to: "[name][ext]",
-        },
       ],
     }),
   ],
