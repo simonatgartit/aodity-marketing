@@ -239,13 +239,25 @@
     }
 
     /* ── Pricing ── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: start;
+      margin-top: 48px;
+    }
     .pricing-card {
       background: var(--card-bg);
       border-radius: var(--radius);
       box-shadow: 0 2px 12px rgba(0,0,0,0.08);
       border: 1px solid var(--border);
-      padding: 40px 36px;
-      max-width: 420px;
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+    }
+    .pricing-card.featured {
+      border-color: var(--accent);
+      box-shadow: 0 4px 24px rgba(0,82,255,0.12);
     }
     .pricing-badge {
       display: inline-block;
@@ -258,18 +270,19 @@
       border-radius: 999px;
       padding: 3px 10px;
       margin-bottom: 16px;
+      align-self: flex-start;
     }
-    .pricing-card h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; }
+    .pricing-card h3 { font-size: 1.375rem; font-weight: 700; margin-bottom: 4px; }
     .pricing-price {
-      font-size: 2.25rem;
+      font-size: 1.75rem;
       font-weight: 700;
       letter-spacing: -0.03em;
       color: var(--text);
-      margin: 20px 0 4px;
+      margin: 16px 0 4px;
     }
-    .pricing-price span { font-size: 1rem; font-weight: 500; color: var(--text-secondary); }
-    .pricing-desc { font-size: 0.9375rem; color: var(--text-secondary); margin-bottom: 28px; }
-    .pricing-features { list-style: none; margin-bottom: 32px; }
+    .pricing-price span { font-size: 0.9375rem; font-weight: 500; color: var(--text-secondary); }
+    .pricing-desc { font-size: 0.9375rem; color: var(--text-secondary); margin-bottom: 24px; }
+    .pricing-features { list-style: none; margin-bottom: 28px; flex: 1; }
     .pricing-features li {
       font-size: 0.9375rem;
       padding: 8px 0;
@@ -311,6 +324,9 @@
     .footer-link:hover { text-decoration: underline; }
 
     /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .pricing-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+    }
     @media (max-width: 600px) {
       .hero { padding: 64px 0 56px; }
       section { padding: 56px 0; }
@@ -408,21 +424,58 @@
     <div class="container">
       <div class="section-label">Prissättning</div>
       <h2 class="section-title">Enkelt och transparent</h2>
-      <p class="section-desc">Vi är i tidig fas — kontakta oss för att diskutera prissättning och onboarding.</p>
-      <div class="pricing-card">
-        <div class="pricing-badge">Pro</div>
-        <h3>Aodity Pro</h3>
-        <div class="pricing-price">Kontakta oss <span>/ månad</span></div>
-        <p class="pricing-desc">Skräddarsytt för din organisation. Vi hjälper dig komma igång.</p>
-        <ul class="pricing-features">
-          <li><span class="check">✓</span> Obegränsade entities och versioner</li>
-          <li><span class="check">✓</span> Excel-tillägg för hela teamet</li>
-          <li><span class="check">✓</span> REST API med API-nyckelhantering</li>
-          <li><span class="check">✓</span> Rollbaserad access (manager, editor, viewer)</li>
-          <li><span class="check">✓</span> Audit log</li>
-          <li><span class="check">✓</span> Onboarding och support</li>
-        </ul>
-        <a href="mailto:hej@aodity.se" class="btn-primary" style="width:100%;text-align:center;">Kontakta oss</a>
+      <p class="section-desc">Välj den plan som passar din organisation. Kontakta oss för att komma igång.</p>
+      <div class="pricing-grid">
+
+        <!-- Medium -->
+        <div class="pricing-card">
+          <h3>Medium</h3>
+          <div class="pricing-price">Kontakta oss <span>/ månad</span></div>
+          <ul class="pricing-features">
+            <li><span class="check">✓</span> Upp till 5 användare</li>
+            <li><span class="check">✓</span> Upp till 10 entities</li>
+            <li><span class="check">✓</span> 5 000 API-anrop / månad</li>
+            <li><span class="check">✓</span> Excel-tillägg</li>
+            <li><span class="check">✓</span> REST API med API-nycklar</li>
+            <li><span class="check">✓</span> Rollbaserad access</li>
+          </ul>
+          <a href="mailto:hej@aodity.se" class="btn-primary" style="width:100%;text-align:center;">Kom igång</a>
+        </div>
+
+        <!-- Large -->
+        <div class="pricing-card featured">
+          <div class="pricing-badge">Populärast</div>
+          <h3>Large</h3>
+          <div class="pricing-price">Kontakta oss <span>/ månad</span></div>
+          <ul class="pricing-features">
+            <li><span class="check">✓</span> Upp till 15 användare</li>
+            <li><span class="check">✓</span> Upp till 50 entities</li>
+            <li><span class="check">✓</span> 25 000 API-anrop / månad</li>
+            <li><span class="check">✓</span> Excel-tillägg</li>
+            <li><span class="check">✓</span> REST API med API-nycklar</li>
+            <li><span class="check">✓</span> Rollbaserad access</li>
+            <li><span class="check">✓</span> Audit log</li>
+          </ul>
+          <a href="mailto:hej@aodity.se" class="btn-primary" style="width:100%;text-align:center;">Kom igång</a>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="pricing-card">
+          <h3>Enterprise</h3>
+          <div class="pricing-price">Kontakta oss</div>
+          <ul class="pricing-features">
+            <li><span class="check">✓</span> Obegränsat antal användare</li>
+            <li><span class="check">✓</span> Obegränsat antal entities</li>
+            <li><span class="check">✓</span> Obegränsade API-anrop</li>
+            <li><span class="check">✓</span> Excel-tillägg</li>
+            <li><span class="check">✓</span> REST API med API-nycklar</li>
+            <li><span class="check">✓</span> Rollbaserad access</li>
+            <li><span class="check">✓</span> Audit log</li>
+            <li><span class="check">✓</span> Anpassad onboarding och support</li>
+          </ul>
+          <a href="mailto:hej@aodity.se" class="btn-primary" style="width:100%;text-align:center;">Kontakta oss</a>
+        </div>
+
       </div>
     </div>
   </section>
