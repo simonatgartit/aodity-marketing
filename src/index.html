@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aodity — Masterdata från Excel till API</title>
+  <meta name="description" content="Publicera masterdata direkt från Excel och gör den tillgänglig via ett strukturerat API. Versionskontroll, rollbaserad access och sömlös BI-integration." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent:      #0052FF;
+      --accent-dark: #0040CC;
+      --text:        #111111;
+      --text-secondary: #666666;
+      --bg:          #F5F5F5;
+      --card-bg:     #FFFFFF;
+      --border:      #E5E7EB;
+      --radius:      12px;
+      --shadow:      0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Nav ── */
+    nav {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 10;
+    }
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .wordmark { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; }
+    .wordmark .ao { color: var(--text); }
+    .wordmark .dity { color: var(--accent); }
+    .nav-cta {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 18px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.15s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .nav-cta:hover { background: var(--accent-dark); }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 96px 0 80px;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(0,82,255,0.08);
+      border-radius: 999px;
+      padding: 4px 14px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      max-width: 720px;
+      margin: 0 auto 20px;
+    }
+    .hero h1 em {
+      color: var(--accent);
+      font-style: normal;
+    }
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin: 0 auto 40px;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 14px 32px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.15s, transform 0.1s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+    .btn-secondary-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 13px 28px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: inherit;
+      transition: border-color 0.15s;
+      text-decoration: none;
+      display: inline-block;
+      margin-left: 12px;
+    }
+    .btn-secondary-outline:hover { border-color: #aaa; }
+
+    /* ── Section headings ── */
+    section { padding: 80px 0; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      font-size: 1.0625rem;
+      color: var(--text-secondary);
+      max-width: 540px;
+      margin-bottom: 56px;
+    }
+
+    /* ── Features grid ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 28px 24px;
+    }
+    .feature-icon {
+      width: 44px; height: 44px;
+      background: rgba(0,82,255,0.08);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+      font-size: 1.375rem;
+    }
+    .feature-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .feature-card p {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    /* ── How it works ── */
+    .how-bg { background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+      counter-reset: steps;
+    }
+    .step { position: relative; }
+    .step-number {
+      width: 40px; height: 40px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      flex-shrink: 0;
+    }
+    .step h3 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
+    .step p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.55; }
+    .step-connector {
+      display: none;
+    }
+    @media (min-width: 640px) {
+      .steps { position: relative; }
+      .step-connector {
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: calc(33.33% + 20px);
+        width: calc(33.33% - 40px);
+        height: 1px;
+        background: var(--border);
+      }
+      .step-connector.second {
+        left: calc(66.66% + 20px);
+      }
+    }
+
+    /* ── Pricing ── */
+    .pricing-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      border: 1px solid var(--border);
+      padding: 40px 36px;
+      max-width: 420px;
+    }
+    .pricing-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      padding: 3px 10px;
+      margin-bottom: 16px;
+    }
+    .pricing-card h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; }
+    .pricing-price {
+      font-size: 2.25rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin: 20px 0 4px;
+    }
+    .pricing-price span { font-size: 1rem; font-weight: 500; color: var(--text-secondary); }
+    .pricing-desc { font-size: 0.9375rem; color: var(--text-secondary); margin-bottom: 28px; }
+    .pricing-features { list-style: none; margin-bottom: 32px; }
+    .pricing-features li {
+      font-size: 0.9375rem;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+    }
+    .pricing-features li:last-child { border-bottom: none; }
+    .check {
+      width: 18px; height: 18px;
+      background: rgba(0,82,255,0.1);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.6875rem;
+      color: var(--accent);
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #fff;
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+    }
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy { font-size: 0.875rem; color: var(--text-secondary); }
+    .footer-link { font-size: 0.875rem; color: var(--accent); }
+    .footer-link:hover { text-decoration: underline; }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .hero { padding: 64px 0 56px; }
+      section { padding: 56px 0; }
+      .btn-secondary-outline { margin-left: 0; margin-top: 12px; }
+      .hero-actions { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+      .hero-actions .btn-secondary-outline { margin: 0; }
+      .pricing-card { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Nav ── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="wordmark"><span class="ao">Ao</span><span class="dity">dity</span></a>
+      <a href="mailto:hej@aodity.se" class="nav-cta">Kom igång</a>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-eyebrow">Masterdata Management</div>
+      <h1>Publicera masterdata från <em>Excel</em> till API</h1>
+      <p>Aodity kopplar ihop din Excel-arbetsbok med resten av organisationen — ett strukturerat API med versionskontroll, rollbaserad access och sömlös BI-integration.</p>
+      <div class="hero-actions">
+        <a href="mailto:hej@aodity.se" class="btn-primary">Kom igång</a>
+        <a href="#how" class="btn-secondary-outline">Hur det fungerar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Features ── -->
+  <section id="features">
+    <div class="container">
+      <div class="section-label">Funktioner</div>
+      <h2 class="section-title">Allt du behöver för masterdata</h2>
+      <p class="section-desc">Från ett enkelt Excel-tillägg till ett fullständigt API — byggt för team som hanterar strukturerad data.</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Publicera från Excel</h3>
+          <p>Ladda upp data direkt från Excel-tillägget med ett knapptryck. Ingen export, ingen manuell hantering.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔀</div>
+          <h3>Versionskontroll</h3>
+          <p>Varje publicering skapar en ny version. Bläddra i historiken och återställ ett tidigare tillstånd när som helst.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔌</div>
+          <h3>API för BI-integration</h3>
+          <p>Hämta aktuell masterdata via REST API med API-nyckel. Fungerar sömlöst med Power BI, Tableau och andra BI-verktyg.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔐</div>
+          <h3>Rollbaserad access</h3>
+          <p>Manager, editor och viewer — styr vem som får publicera, redigera eller enbart läsa. Allt tenant-isolerat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How it works ── -->
+  <section id="how" class="how-bg">
+    <div class="container">
+      <div class="section-label">Hur det fungerar</div>
+      <h2 class="section-title">Tre steg till strukturerad data</h2>
+      <p class="section-desc">Kom igång på minuter — ingen infrastruktur att sätta upp, ingen kod att skriva.</p>
+      <div class="steps">
+        <div class="step-connector"></div>
+        <div class="step-connector second"></div>
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Definiera schema</h3>
+          <p>Skapa ett entity-schema i admin-portalen och definiera fält med namn och typ — t.ex. kontonamn (string), belopp (integer).</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Publicera från Excel</h3>
+          <p>Öppna Aodity-tillägget i Excel, välj entity och tryck Publicera. Data valideras mot schemat och lagras som en ny version.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Hämta via API</h3>
+          <p>Integrera med ditt BI-verktyg via REST API. Alltid senaste versionen — eller välj en specifik version för reproducerbara rapporter.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Pricing ── -->
+  <section id="pricing">
+    <div class="container">
+      <div class="section-label">Prissättning</div>
+      <h2 class="section-title">Enkelt och transparent</h2>
+      <p class="section-desc">Vi är i tidig fas — kontakta oss för att diskutera prissättning och onboarding.</p>
+      <div class="pricing-card">
+        <div class="pricing-badge">Pro</div>
+        <h3>Aodity Pro</h3>
+        <div class="pricing-price">Kontakta oss <span>/ månad</span></div>
+        <p class="pricing-desc">Skräddarsytt för din organisation. Vi hjälper dig komma igång.</p>
+        <ul class="pricing-features">
+          <li><span class="check">✓</span> Obegränsade entities och versioner</li>
+          <li><span class="check">✓</span> Excel-tillägg för hela teamet</li>
+          <li><span class="check">✓</span> REST API med API-nyckelhantering</li>
+          <li><span class="check">✓</span> Rollbaserad access (manager, editor, viewer)</li>
+          <li><span class="check">✓</span> Audit log</li>
+          <li><span class="check">✓</span> Onboarding och support</li>
+        </ul>
+        <a href="mailto:hej@aodity.se" class="btn-primary" style="width:100%;text-align:center;">Kontakta oss</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 Aodity. Alla rättigheter förbehållna.</span>
+      <a href="https://aodity.se" class="footer-link">aodity.se</a>
+    </div>
+  </footer>
+
+</body>
+</html>
