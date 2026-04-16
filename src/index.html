@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-i18n-title-text="meta.title">Aodity — Masterdata från Excel till API</title>
+  <title data-i18n-title-text="meta.title">Aodity, masterdata från Excel till API</title>
   <meta name="description" content="Publicera masterdata direkt från Excel och gör den tillgänglig via ett strukturerat API. Versionskontroll, rollbaserad access och sömlös BI-integration." data-i18n-content="meta.description" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -390,7 +390,7 @@
     <div class="container">
       <div class="hero-eyebrow" data-i18n="hero.eyebrow">Masterdata Management</div>
       <h1 data-i18n-html="hero.titleHtml">Publicera masterdata från <em>Excel</em> till API</h1>
-      <p data-i18n="hero.body">Aodity kopplar ihop din Excel-arbetsbok med resten av organisationen — ett strukturerat API med versionskontroll, rollbaserad access och sömlös BI-integration.</p>
+      <p data-i18n="hero.body">Aodity kopplar ihop din Excel-arbetsbok med resten av organisationen. Ett strukturerat API med versionskontroll, rollbaserad access och sömlös BI-integration.</p>
       <div class="hero-actions">
         <a href="#pricing" class="btn-primary" data-i18n="hero.ctaPrimary">Kom igång</a>
         <a href="#how" class="btn-secondary-outline" data-i18n="hero.ctaSecondary">Hur det fungerar</a>
@@ -403,7 +403,7 @@
     <div class="container">
       <div class="section-label" data-i18n="section.features.label">Funktioner</div>
       <h2 class="section-title" data-i18n="section.features.title">Allt du behöver för masterdata</h2>
-      <p class="section-desc" data-i18n="section.features.desc">Från ett enkelt Excel-tillägg till ett fullständigt API — byggt för team som hanterar strukturerad data.</p>
+      <p class="section-desc" data-i18n="section.features.desc">Från ett enkelt Excel-tillägg till ett fullständigt API, byggt för team som hanterar strukturerad data.</p>
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon">📊</div>
@@ -423,7 +423,12 @@
         <div class="feature-card">
           <div class="feature-icon">🔐</div>
           <h3 data-i18n="feature4.title">Rollbaserad access</h3>
-          <p data-i18n="feature4.body">Manager, editor och viewer — styr vem som får publicera, redigera eller enbart läsa. Allt tenant-isolerat.</p>
+          <p data-i18n="feature4.body">Manager, editor och viewer. Styr vem som får publicera, redigera eller enbart läsa. Allt tenant-isolerat.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔗</div>
+          <h3 data-i18n="feature5.title">Datavalidering och relationer</h3>
+          <p data-i18n="feature5.body">Definiera regler direkt i schemat. Kräv att värden matchar en lista, följer ett format eller refererar till en annan entity. Fungerar i både Excel och webb-editorn.</p>
         </div>
       </div>
     </div>
@@ -434,7 +439,7 @@
     <div class="container">
       <div class="section-label" data-i18n="section.how.label">Hur det fungerar</div>
       <h2 class="section-title" data-i18n="section.how.title">Tre steg till strukturerad data</h2>
-      <p class="section-desc" data-i18n="section.how.desc">Kom igång på minuter — ingen infrastruktur att sätta upp, ingen kod att skriva.</p>
+      <p class="section-desc" data-i18n="section.how.desc">Kom igång på minuter. Ingen infrastruktur att sätta upp, ingen kod att skriva.</p>
       <div class="steps">
         <div class="step-connector first"></div>
         <div class="step-connector"></div>
@@ -442,7 +447,7 @@
         <div class="step">
           <div class="step-number">1</div>
           <h3 data-i18n="step1.title">Definiera schema</h3>
-          <p data-i18n="step1.body">Skapa ett entity-schema i admin-portalen och definiera fält med namn och typ — t.ex. kontonamn (string), belopp (integer).</p>
+          <p data-i18n="step1.body">Skapa ett entity-schema i admin-portalen och definiera fält med namn och typ. Lägg till valideringsregler som enum-värden, format eller kopplingar till andra entities.</p>
         </div>
         <div class="step">
           <div class="step-number">2</div>
@@ -452,7 +457,7 @@
         <div class="step">
           <div class="step-number">3</div>
           <h3 data-i18n="step3.title">Hämta via API</h3>
-          <p data-i18n="step3.body">Integrera med ditt BI-verktyg via REST API. Alltid senaste versionen — eller välj en specifik version för reproducerbara rapporter.</p>
+          <p data-i18n="step3.body">Integrera med ditt BI-verktyg via REST API. Alltid senaste versionen, eller välj en specifik version för reproducerbara rapporter.</p>
         </div>
       </div>
     </div>
@@ -512,7 +517,9 @@
             <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f6">Rollbaserad access</span></li>
             <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f7">Audit log</span></li>
             <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f8">Webb-editor</span></li>
-            <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f9">Anpassad onboarding och support</span></li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f9">Custom constraints (enum, regex, intervall, prefix)</span></li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f10">Foreign key-validering mellan entities</span></li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f11">Anpassad onboarding och support</span></li>
           </ul>
           <a href="mailto:hej@aodity.se" class="btn-primary" style="width:100%;text-align:center;" data-i18n="pricing.contactUs">Kontakta oss</a>
         </div>
