@@ -16,6 +16,10 @@ module.exports = {
           from: "src/*.html",
           to: "[name][ext]",
         },
+        {
+          from: "src/translations.js",
+          to: "translations.js",
+        },
       ],
     }),
   ],

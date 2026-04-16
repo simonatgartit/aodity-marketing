@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aodity — Masterdata från Excel till API</title>
-  <meta name="description" content="Publicera masterdata direkt från Excel och gör den tillgänglig via ett strukturerat API. Versionskontroll, rollbaserad access och sömlös BI-integration." />
+  <title data-i18n-title-text="meta.title">Aodity — Masterdata från Excel till API</title>
+  <meta name="description" content="Publicera masterdata direkt från Excel och gör den tillgänglig via ett strukturerat API. Versionskontroll, rollbaserad access och sömlös BI-integration." data-i18n-content="meta.description" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -340,6 +340,17 @@
       .hero-actions .btn-secondary-outline { margin: 0; }
       .pricing-card { padding: 28px 20px; }
     }
+
+    /* ── Language toggle ── */
+    .lang-toggle { display: inline-flex; gap: 4px; align-items: center; margin-right: 12px; }
+    .lang-btn {
+      background: transparent; border: none; padding: 4px;
+      cursor: pointer; border-radius: 4px; opacity: 0.4;
+      transition: opacity 0.15s;
+      display: inline-flex; align-items: center;
+    }
+    .lang-btn:hover { opacity: 0.7; }
+    .lang-btn.lang-active { opacity: 1; }
   </style>
 </head>
 <body>
@@ -348,19 +359,41 @@
   <nav>
     <div class="nav-inner">
       <a href="/" class="wordmark"><span class="ao">Ao</span><span class="dity">dity</span></a>
-      <a href="#pricing" class="nav-cta">Kom igång</a>
+      <div style="display:flex;align-items:center;">
+        <div class="lang-toggle" aria-label="Language">
+          <button type="button" class="lang-btn" data-lang-btn="sv" aria-label="Svenska" title="Svenska">
+            <svg viewBox="0 0 16 10" width="20" height="14" aria-hidden="true">
+              <rect width="16" height="10" fill="#006AA7"/>
+              <rect x="5" width="2" height="10" fill="#FECC00"/>
+              <rect y="4" width="16" height="2" fill="#FECC00"/>
+            </svg>
+          </button>
+          <button type="button" class="lang-btn" data-lang-btn="en" aria-label="English" title="English">
+            <svg viewBox="0 0 16 10" width="20" height="14" aria-hidden="true">
+              <rect width="16" height="10" fill="#012169"/>
+              <path d="M0,0 L16,10 M16,0 L0,10" stroke="#FFFFFF" stroke-width="1.4"/>
+              <path d="M0,0 L16,10 M16,0 L0,10" stroke="#C8102E" stroke-width="0.7"/>
+              <rect x="7" width="2" height="10" fill="#FFFFFF"/>
+              <rect y="4" width="16" height="2" fill="#FFFFFF"/>
+              <rect x="7.4" width="1.2" height="10" fill="#C8102E"/>
+              <rect y="4.4" width="16" height="1.2" fill="#C8102E"/>
+            </svg>
+          </button>
+        </div>
+        <a href="#pricing" class="nav-cta" data-i18n="nav.getStarted">Kom igång</a>
+      </div>
     </div>
   </nav>
 
   <!-- ── Hero ── -->
   <section class="hero">
     <div class="container">
-      <div class="hero-eyebrow">Masterdata Management</div>
-      <h1>Publicera masterdata från <em>Excel</em> till API</h1>
-      <p>Aodity kopplar ihop din Excel-arbetsbok med resten av organisationen — ett strukturerat API med versionskontroll, rollbaserad access och sömlös BI-integration.</p>
+      <div class="hero-eyebrow" data-i18n="hero.eyebrow">Masterdata Management</div>
+      <h1 data-i18n-html="hero.titleHtml">Publicera masterdata från <em>Excel</em> till API</h1>
+      <p data-i18n="hero.body">Aodity kopplar ihop din Excel-arbetsbok med resten av organisationen — ett strukturerat API med versionskontroll, rollbaserad access och sömlös BI-integration.</p>
       <div class="hero-actions">
-        <a href="#pricing" class="btn-primary">Kom igång</a>
-        <a href="#how" class="btn-secondary-outline">Hur det fungerar</a>
+        <a href="#pricing" class="btn-primary" data-i18n="hero.ctaPrimary">Kom igång</a>
+        <a href="#how" class="btn-secondary-outline" data-i18n="hero.ctaSecondary">Hur det fungerar</a>
       </div>
     </div>
   </section>
@@ -368,29 +401,29 @@
   <!-- ── Features ── -->
   <section id="features">
     <div class="container">
-      <div class="section-label">Funktioner</div>
-      <h2 class="section-title">Allt du behöver för masterdata</h2>
-      <p class="section-desc">Från ett enkelt Excel-tillägg till ett fullständigt API — byggt för team som hanterar strukturerad data.</p>
+      <div class="section-label" data-i18n="section.features.label">Funktioner</div>
+      <h2 class="section-title" data-i18n="section.features.title">Allt du behöver för masterdata</h2>
+      <p class="section-desc" data-i18n="section.features.desc">Från ett enkelt Excel-tillägg till ett fullständigt API — byggt för team som hanterar strukturerad data.</p>
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon">📊</div>
-          <h3>Publicera från Excel</h3>
-          <p>Ladda upp data direkt från Excel-tillägget med ett knapptryck. Ingen export, ingen manuell hantering.</p>
+          <h3 data-i18n="feature1.title">Publicera från Excel</h3>
+          <p data-i18n="feature1.body">Ladda upp data direkt från Excel-tillägget med ett knapptryck. Ingen export, ingen manuell hantering.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🔀</div>
-          <h3>Versionskontroll</h3>
-          <p>Varje publicering skapar en ny version. Bläddra i historiken och återställ ett tidigare tillstånd när som helst.</p>
+          <h3 data-i18n="feature2.title">Versionskontroll</h3>
+          <p data-i18n="feature2.body">Varje publicering skapar en ny version. Bläddra i historiken och återställ ett tidigare tillstånd när som helst.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🔌</div>
-          <h3>API för BI-integration</h3>
-          <p>Hämta aktuell masterdata via REST API med API-nyckel. Fungerar sömlöst med Power BI, Tableau och andra BI-verktyg.</p>
+          <h3 data-i18n="feature3.title">API för BI-integration</h3>
+          <p data-i18n="feature3.body">Hämta aktuell masterdata via REST API med API-nyckel. Fungerar sömlöst med Power BI, Tableau och andra BI-verktyg.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🔐</div>
-          <h3>Rollbaserad access</h3>
-          <p>Manager, editor och viewer — styr vem som får publicera, redigera eller enbart läsa. Allt tenant-isolerat.</p>
+          <h3 data-i18n="feature4.title">Rollbaserad access</h3>
+          <p data-i18n="feature4.body">Manager, editor och viewer — styr vem som får publicera, redigera eller enbart läsa. Allt tenant-isolerat.</p>
         </div>
       </div>
     </div>
@@ -399,27 +432,27 @@
   <!-- ── How it works ── -->
   <section id="how" class="how-bg">
     <div class="container">
-      <div class="section-label">Hur det fungerar</div>
-      <h2 class="section-title">Tre steg till strukturerad data</h2>
-      <p class="section-desc">Kom igång på minuter — ingen infrastruktur att sätta upp, ingen kod att skriva.</p>
+      <div class="section-label" data-i18n="section.how.label">Hur det fungerar</div>
+      <h2 class="section-title" data-i18n="section.how.title">Tre steg till strukturerad data</h2>
+      <p class="section-desc" data-i18n="section.how.desc">Kom igång på minuter — ingen infrastruktur att sätta upp, ingen kod att skriva.</p>
       <div class="steps">
         <div class="step-connector first"></div>
         <div class="step-connector"></div>
         <div class="step-connector second"></div>
         <div class="step">
           <div class="step-number">1</div>
-          <h3>Definiera schema</h3>
-          <p>Skapa ett entity-schema i admin-portalen och definiera fält med namn och typ — t.ex. kontonamn (string), belopp (integer).</p>
+          <h3 data-i18n="step1.title">Definiera schema</h3>
+          <p data-i18n="step1.body">Skapa ett entity-schema i admin-portalen och definiera fält med namn och typ — t.ex. kontonamn (string), belopp (integer).</p>
         </div>
         <div class="step">
           <div class="step-number">2</div>
-          <h3>Publicera från Excel</h3>
-          <p>Öppna Aodity-tillägget i Excel, välj entity och tryck Publicera. Data valideras mot schemat och lagras som en ny version.</p>
+          <h3 data-i18n="step2.title">Publicera från Excel</h3>
+          <p data-i18n="step2.body">Öppna Aodity-tillägget i Excel, välj entity och tryck Publicera. Data valideras mot schemat och lagras som en ny version.</p>
         </div>
         <div class="step">
           <div class="step-number">3</div>
-          <h3>Hämta via API</h3>
-          <p>Integrera med ditt BI-verktyg via REST API. Alltid senaste versionen — eller välj en specifik version för reproducerbara rapporter.</p>
+          <h3 data-i18n="step3.title">Hämta via API</h3>
+          <p data-i18n="step3.body">Integrera med ditt BI-verktyg via REST API. Alltid senaste versionen — eller välj en specifik version för reproducerbara rapporter.</p>
         </div>
       </div>
     </div>
@@ -428,74 +461,76 @@
   <!-- ── Pricing ── -->
   <section id="pricing">
     <div class="container">
-      <div class="section-label">Prissättning</div>
-      <h2 class="section-title">Enkelt och transparent</h2>
-      <p class="section-desc">Välj den plan som passar din organisation. Kontakta oss för att komma igång.</p>
+      <div class="section-label" data-i18n="section.pricing.label">Prissättning</div>
+      <h2 class="section-title" data-i18n="section.pricing.title">Enkelt och transparent</h2>
+      <p class="section-desc" data-i18n="section.pricing.desc">Välj den plan som passar din organisation. Kontakta oss för att komma igång.</p>
       <div class="pricing-grid">
 
         <!-- Medium -->
         <div class="pricing-card">
-          <h3>Medium</h3>
-          <div class="pricing-price">2 490 kr <span>/ månad</span></div>
+          <h3 data-i18n="pricing.medium.name">Medium</h3>
+          <div class="pricing-price"><span data-i18n="pricing.medium.price">2 490 kr</span> <span data-i18n="pricing.perMonth">/ månad</span></div>
           <ul class="pricing-features">
-            <li><span class="check">✓</span> Upp till 5 användare</li>
-            <li><span class="check">✓</span> Upp till 10 entities</li>
-            <li><span class="check">✓</span> 5 000 API-anrop / månad</li>
-            <li><span class="check">✓</span> Excel-tillägg</li>
-            <li><span class="check">✓</span> REST API med API-nycklar</li>
-            <li><span class="check">✓</span> Rollbaserad access</li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.medium.f1">Upp till 5 användare</span></li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.medium.f2">Upp till 10 entities</span></li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.medium.f3">5 000 API-anrop / månad</span></li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.medium.f4">Excel-tillägg</span></li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.medium.f5">REST API med API-nycklar</span></li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.medium.f6">Rollbaserad access</span></li>
           </ul>
-          <a href="https://app.aodity.se/onboarding.html?plan=medium" class="btn-primary" style="width:100%;text-align:center;">Kom igång</a>
+          <a href="https://app.aodity.se/onboarding.html?plan=medium" class="btn-primary" style="width:100%;text-align:center;" data-i18n="pricing.getStarted">Kom igång</a>
         </div>
 
         <!-- Large -->
         <div class="pricing-card featured" style="position:relative;">
-          <div class="pricing-badge" style="position:absolute;top:16px;right:16px;margin-bottom:0;">Populärast</div>
-          <h3>Large</h3>
-          <div class="pricing-price">5 990 kr <span>/ månad</span></div>
+          <div class="pricing-badge" style="position:absolute;top:16px;right:16px;margin-bottom:0;" data-i18n="pricing.popular">Populärast</div>
+          <h3 data-i18n="pricing.large.name">Large</h3>
+          <div class="pricing-price"><span data-i18n="pricing.large.price">5 990 kr</span> <span data-i18n="pricing.perMonth">/ månad</span></div>
           <ul class="pricing-features">
-            <li><span class="check">✓</span> Upp till 15 användare</li>
-            <li><span class="check">✓</span> Upp till 50 entities</li>
-            <li><span class="check">✓</span> 25 000 API-anrop / månad</li>
-            <li><span class="check">✓</span> Excel-tillägg</li>
-            <li><span class="check">✓</span> REST API med API-nycklar</li>
-            <li><span class="check">✓</span> Rollbaserad access</li>
-            <li><span class="check">✓</span> Audit log</li>
-            <li><span class="check">✓</span> Webb-editor</li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.large.f1">Upp till 15 användare</span></li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.large.f2">Upp till 50 entities</span></li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.large.f3">25 000 API-anrop / månad</span></li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.large.f4">Excel-tillägg</span></li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.large.f5">REST API med API-nycklar</span></li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.large.f6">Rollbaserad access</span></li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.large.f7">Audit log</span></li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.large.f8">Webb-editor</span></li>
           </ul>
-          <a href="https://app.aodity.se/onboarding.html?plan=large" class="btn-primary" style="width:100%;text-align:center;">Kom igång</a>
+          <a href="https://app.aodity.se/onboarding.html?plan=large" class="btn-primary" style="width:100%;text-align:center;" data-i18n="pricing.getStarted">Kom igång</a>
         </div>
 
         <!-- Enterprise -->
         <div class="pricing-card">
-          <h3>Enterprise</h3>
-          <div class="pricing-price">Från 14 990 kr <span>/ månad</span></div>
+          <h3 data-i18n="pricing.enterprise.name">Enterprise</h3>
+          <div class="pricing-price"><span data-i18n="pricing.enterprise.price">Från 14 990 kr</span> <span data-i18n="pricing.perMonth">/ månad</span></div>
           <ul class="pricing-features">
-            <li><span class="check">✓</span> Obegränsat antal användare</li>
-            <li><span class="check">✓</span> Obegränsat antal entities</li>
-            <li><span class="check">✓</span> Obegränsade API-anrop</li>
-            <li><span class="check">✓</span> Excel-tillägg</li>
-            <li><span class="check">✓</span> REST API med API-nycklar</li>
-            <li><span class="check">✓</span> Rollbaserad access</li>
-            <li><span class="check">✓</span> Audit log</li>
-            <li><span class="check">✓</span> Webb-editor</li>
-            <li><span class="check">✓</span> Anpassad onboarding och support</li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f1">Obegränsat antal användare</span></li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f2">Obegränsat antal entities</span></li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f3">Obegränsade API-anrop</span></li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f4">Excel-tillägg</span></li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f5">REST API med API-nycklar</span></li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f6">Rollbaserad access</span></li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f7">Audit log</span></li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f8">Webb-editor</span></li>
+            <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f9">Anpassad onboarding och support</span></li>
           </ul>
-          <a href="mailto:hej@aodity.se" class="btn-primary" style="width:100%;text-align:center;">Kontakta oss</a>
+          <a href="mailto:hej@aodity.se" class="btn-primary" style="width:100%;text-align:center;" data-i18n="pricing.contactUs">Kontakta oss</a>
         </div>
 
       </div>
-      <p style="text-align:center;font-size:0.8125rem;color:#666;margin-top:1.25rem;">Alla priser anges exklusive moms.</p>
+      <p style="text-align:center;font-size:0.8125rem;color:#666;margin-top:1.25rem;" data-i18n="pricing.vatNote">Alla priser anges exklusive moms.</p>
     </div>
   </section>
 
   <!-- ── Footer ── -->
   <footer>
     <div class="footer-inner">
-      <span class="footer-copy">© 2026 GartIT AB. Alla rättigheter förbehållna.</span>
+      <span class="footer-copy" data-i18n="footer.copy">© 2026 GartIT AB. Alla rättigheter förbehållna.</span>
       <a href="https://aodity.se" class="footer-link">aodity.se</a>
     </div>
   </footer>
 
+  <script src="translations.js"></script>
+  <script>AodityI18n.initLangToggle();</script>
 </body>
 </html>
