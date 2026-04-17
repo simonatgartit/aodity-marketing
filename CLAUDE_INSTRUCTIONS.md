@@ -25,7 +25,7 @@ Push to `main` → GitHub Actions → Netlify. No API_URL or other secrets neede
 
 ## Design tokens
 Defined as CSS variables in `src/index.html`:
-- `--blue`: #0052FF (brand accent)
+- `--blue`: #0066FF (brand accent)
 - `--dark`: #111 (headings/text)
 - `--mid`: #444 (body)
 - `--light`: #f5f7fa` (backgrounds)
