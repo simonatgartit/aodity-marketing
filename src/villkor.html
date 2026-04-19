@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Allmänna villkor — Aodity</title>
+  <meta name="description" content="Allmänna villkor för Aodity (GartIT AB). Reglerar prenumeration, ansvar, personuppgifter och användning av tjänsten." />
+  <meta name="robots" content="index,follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent:      #0066FF;
+      --accent-dark: #0040CC;
+      --text:        #111111;
+      --text-secondary: #666666;
+      --bg:          #F5F5F5;
+      --card-bg:     #FFFFFF;
+      --border:      #E5E7EB;
+      --radius:      12px;
+      --shadow:      0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Nav (matchar index.html) ── */
+    nav {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 10;
+    }
+    .nav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .wordmark { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; }
+    .wordmark .ao { color: var(--text); }
+    .wordmark .dity { color: var(--accent); }
+    .nav-back {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+    .nav-back:hover { color: var(--text); text-decoration: none; }
+
+    /* ── Document layout ── */
+    .doc {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+
+    .doc-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(0,102,255,0.08);
+      border-radius: 999px;
+      padding: 4px 14px;
+      margin-bottom: 20px;
+    }
+
+    .doc h1 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .doc-meta {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .doc-meta span + span::before {
+      content: "·";
+      margin: 0 8px;
+    }
+
+    .doc-lede {
+      font-size: 1.0625rem;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+    }
+
+    .doc h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--text);
+      margin-top: 48px;
+      margin-bottom: 16px;
+      scroll-margin-top: 80px;
+    }
+
+    .doc p {
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    .doc p + p { margin-top: 0; }
+
+    .doc-contact {
+      margin-top: 16px;
+      padding: 20px 24px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.9375rem;
+      line-height: 1.8;
+    }
+    .doc-contact strong { font-weight: 600; }
+
+    /* ── Footer ── */
+    footer {
+      background: #fff;
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+    }
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy { font-size: 0.875rem; color: var(--text-secondary); }
+    .footer-links { display: inline-flex; gap: 16px; align-items: center; }
+    .footer-link { font-size: 0.875rem; color: var(--accent); }
+    .footer-link:hover { text-decoration: underline; }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .doc { padding: 40px 20px 64px; }
+      .doc h2 { margin-top: 36px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ── Print ── */
+    @media print {
+      nav, footer { display: none; }
+      body { background: #fff; color: #000; }
+      .doc { max-width: none; padding: 24px 0; margin: 0 20mm; }
+      .doc h1, .doc h2, .doc p, .doc-meta, .doc-lede, .doc-contact { color: #000; }
+      .doc-eyebrow {
+        background: transparent; color: #000; padding: 0; margin-bottom: 12px;
+        border: 1px solid #000;
+      }
+      .doc-contact { border-color: #000; background: transparent; }
+      a { color: #000; text-decoration: underline; }
+      .doc h2 { page-break-after: avoid; }
+      .doc p { orphans: 3; widows: 3; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Nav ── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="wordmark"><span class="ao">Ao</span><span class="dity">dity</span></a>
+      <a href="/" class="nav-back">← Tillbaka till aodity.se</a>
+    </div>
+  </nav>
+
+  <!-- ── Main document ── -->
+  <main class="doc" lang="sv">
+    <div class="doc-eyebrow">Juridiskt</div>
+    <h1>Allmänna villkor — Aodity</h1>
+    <div class="doc-meta">
+      <span><strong>Senast uppdaterad:</strong> 19 april 2026</span>
+      <span><strong>Version:</strong> 1.0</span>
+    </div>
+
+    <p class="doc-lede">Dessa allmänna villkor ("Villkoren") reglerar användningen av tjänsten Aodity ("Tjänsten") som tillhandahålls av GartIT AB, org.nr 559025-7951 ("Leverantören", "vi", "oss"), till den juridiska person som tecknar prenumeration ("Kunden", "ni").</p>
+
+    <p>Genom att acceptera Villkoren vid betalning ingår Kunden ett bindande avtal med Leverantören. Den person som genomför betalningen bekräftar att denne har behörighet att binda Kunden till Villkoren.</p>
+
+    <p>Dessa Villkor gäller för prenumerationsplanerna Medium och Large. För Enterprise-kunder tecknas ett separat avtal som kan innehålla anpassade villkor utöver dessa, eller ersätta dem helt.</p>
+
+    <h2 id="s1">1. Tjänsten</h2>
+    <p>1.1 Aodity är en molnbaserad plattform för dataförvaltning (data stewardship) som tillhandahålls som en tjänst (SaaS). Tjänsten omfattar de funktioner som vid var tid beskrivs på aodity.se inom den prenumerationsplan Kunden har tecknat.</p>
+    <p>1.2 Leverantören förbehåller sig rätten att löpande utveckla, ändra och förbättra Tjänsten. Väsentliga funktionsminskningar meddelas Kunden i förväg via e-post med minst 30 dagars varsel.</p>
+    <p>1.3 Tjänsten tillhandahålls via internet. Kunden ansvarar för sin egen internetanslutning och de klientprogram (webbläsare, Excel, etc.) som krävs för att använda Tjänsten.</p>
+
+    <h2 id="s2">2. Prenumeration och avgifter</h2>
+    <p>2.1 Prenumerationen löper månadsvis och debiteras i förskott via Kundens registrerade betalkort genom Stripe.</p>
+    <p>2.2 Priser framgår av aodity.se vid beställningstillfället. Priser anges exklusive mervärdesskatt. Svensk moms om 25 % tillkommer och beräknas automatiskt.</p>
+    <p>2.3 Leverantören har rätt att justera priserna. Prisändringar meddelas Kunden via e-post minst 30 dagar i förväg och träder i kraft nästkommande faktureringsperiod. Om Kunden inte accepterar prisändringen har Kunden rätt att säga upp avtalet innan ändringen träder i kraft.</p>
+    <p>2.4 Vid utebliven betalning pausas Kundens åtkomst till Tjänsten automatiskt. Kunden har 30 dagar på sig att reglera betalningen innan kontot riskerar att avslutas och data raderas enligt punkt 8.</p>
+
+    <h2 id="s3">3. Uppsägning</h2>
+    <p>3.1 Kunden kan när som helst säga upp prenumerationen. Uppsägningen träder i kraft vid utgången av pågående faktureringsperiod. Redan erlagda avgifter återbetalas inte.</p>
+    <p>3.2 Leverantören har rätt att säga upp avtalet med 30 dagars varsel om Kunden väsentligt bryter mot Villkoren, eller omedelbart vid grov misskötsel såsom försök till intrång, missbruk av Tjänsten eller olaglig användning.</p>
+
+    <h2 id="s4">4. Användarkonton och ansvar</h2>
+    <p>4.1 Kunden ansvarar för alla användarkonton som skapas inom Kundens tenant, inklusive hantering av behörigheter och lösenord.</p>
+    <p>4.2 Kunden ansvarar för att de användare som ges åtkomst följer dessa Villkor. Handlingar utförda under Kundens konton anses utförda av Kunden.</p>
+    <p>4.3 Kunden får inte överlåta inloggningsuppgifter till obehöriga eller dela konton mellan flera användare.</p>
+
+    <h2 id="s5">5. Kundens data och immaterialrätt</h2>
+    <p>5.1 Kunden behåller alla rättigheter till den data som Kunden lägger upp i Tjänsten ("Kunddata"). Leverantören gör inga anspråk på äganderätt till Kunddata.</p>
+    <p>5.2 Leverantören får endast behandla Kunddata i syfte att tillhandahålla Tjänsten och i enlighet med Kundens instruktioner.</p>
+    <p>5.3 Alla immateriella rättigheter till Tjänsten, inklusive källkod, design och varumärken, tillhör Leverantören. Kunden får en icke-exklusiv, icke-överlåtbar rätt att använda Tjänsten under avtalsperioden.</p>
+
+    <h2 id="s6">6. Personuppgifter (GDPR)</h2>
+    <p>6.1 När Kunden behandlar personuppgifter i Tjänsten är Kunden personuppgiftsansvarig och Leverantören personuppgiftsbiträde enligt EU:s dataskyddsförordning (GDPR).</p>
+    <p>6.2 Behandlingen regleras av ett separat personuppgiftsbiträdesavtal (DPA) som utgör en integrerad del av dessa Villkor. DPA tillhandahålls på begäran via <a href="mailto:support@aodity.se">support@aodity.se</a>.</p>
+    <p>6.3 Leverantören lagrar Kunddata inom EU/EES.</p>
+
+    <h2 id="s7">7. Tillgänglighet och support</h2>
+    <p>7.1 Leverantören strävar efter att Tjänsten ska vara tillgänglig 24/7, men lämnar inga garantier om specifik upptid. Planerat underhåll meddelas i förväg när möjligt.</p>
+    <p>7.2 Supportärenden hanteras via e-post till <a href="mailto:support@aodity.se">support@aodity.se</a>. Leverantören strävar efter att besvara ärenden inom rimlig tid under kontorstid (vardagar 09:00–17:00).</p>
+
+    <h2 id="s8">8. Uppsägning och dataexport</h2>
+    <p>8.1 Vid uppsägning har Kunden rätt att exportera sin data under 30 dagar efter uppsägningsdatum via Tjänstens exportfunktioner.</p>
+    <p>8.2 Efter 30 dagar raderas Kunddata permanent från Leverantörens produktionssystem. Säkerhetskopior raderas inom ytterligare 90 dagar.</p>
+
+    <h2 id="s9">9. Ansvarsbegränsning</h2>
+    <p>9.1 Leverantörens totala ansvar gentemot Kunden för samtliga krav som uppstår under ett avtalsår är begränsat till det belopp Kunden erlagt för Tjänsten under de senaste tolv (12) månaderna före den händelse som gav upphov till kravet.</p>
+    <p>9.2 Leverantören ansvarar inte för indirekta skador, följdskador, utebliven vinst, förlorad data eller anspråk från tredje part.</p>
+    <p>9.3 Ansvarsbegränsningarna i denna punkt gäller inte vid uppsåt eller grov vårdslöshet.</p>
+
+    <h2 id="s10">10. Force majeure</h2>
+    <p>Leverantören är inte ansvarig för avbrott eller dröjsmål som beror på omständigheter utanför Leverantörens rimliga kontroll, såsom krig, naturkatastrofer, arbetskonflikter, myndighetsbeslut, avbrott hos underleverantörer (inklusive molninfrastruktur) eller avbrott i internettrafik.</p>
+
+    <h2 id="s11">11. Ändringar av Villkoren</h2>
+    <p>11.1 Leverantören har rätt att ändra Villkoren. Väsentliga ändringar meddelas Kunden via e-post minst 30 dagar i förväg.</p>
+    <p>11.2 Om Kunden inte accepterar ändringarna har Kunden rätt att säga upp avtalet innan ändringarna träder i kraft. Fortsatt användning av Tjänsten efter ikraftträdandet innebär att Kunden accepterat de nya Villkoren.</p>
+
+    <h2 id="s12">12. Tillämplig lag och tvistelösning</h2>
+    <p>12.1 På dessa Villkor tillämpas svensk rätt.</p>
+    <p>12.2 Tvister som uppstår i anledning av Villkoren ska i första hand lösas genom förhandling. Om förhandling inte leder till en lösning ska tvisten avgöras av svensk allmän domstol, med Stockholms tingsrätt som första instans.</p>
+
+    <h2 id="s13">13. Kontakt</h2>
+    <div class="doc-contact">
+      <strong>GartIT AB</strong><br />
+      Org.nr: 559025-7951<br />
+      E-post: <a href="mailto:support@aodity.se">support@aodity.se</a><br />
+      Webbplats: <a href="https://aodity.se">https://aodity.se</a>
+    </div>
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 GartIT AB. Alla rättigheter förbehållna.</span>
+      <span class="footer-links">
+        <a href="/villkor" class="footer-link">Villkor</a>
+        <a href="https://aodity.se" class="footer-link">aodity.se</a>
+      </span>
+    </div>
+  </footer>
+
+</body>
+</html>
