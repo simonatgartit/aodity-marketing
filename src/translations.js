@@ -84,7 +84,7 @@
 
       "pricing.epic.dataFlow.title": "Spåra var datan tar vägen",
       "pricing.epic.dataFlow.body": "Se vilka system som konsumerar din masterdata och vad de läser. Visualisera schemat och dess relationer som ett diagram.",
-      "pricing.epic.dataFlow.includes": "Konsumenter, ERD-diagram per projekt",
+      "pricing.epic.dataFlow.includes": "ERD-diagram per projekt",
 
       "pricing.epic.access.title": "Skräddarsy åtkomsten efter organisationen",
       "pricing.epic.access.body": "Ge olika team ansvar för olika projekt utan att tumma på säkerheten. Projekt-scopade roller med Project Managers som äger sina domäner.",
@@ -181,7 +181,7 @@
 
       "pricing.epic.dataFlow.title": "Track where your data goes",
       "pricing.epic.dataFlow.body": "See which systems consume your master data and what they read. Visualize your schema and its relationships as a diagram.",
-      "pricing.epic.dataFlow.includes": "Consumers, ERD diagram per project",
+      "pricing.epic.dataFlow.includes": "ERD diagram per project",
 
       "pricing.epic.access.title": "Tailor access to your organization",
       "pricing.epic.access.body": "Give different teams responsibility for different projects without compromising security. Project-scoped roles with Project Managers owning their domain.",
