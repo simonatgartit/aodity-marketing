@@ -287,7 +287,7 @@
     }
     .pricing-price span { font-size: 0.9375rem; font-weight: 500; color: var(--text-secondary); }
     .pricing-desc { font-size: 0.9375rem; color: var(--text-secondary); margin-bottom: 24px; }
-    .pricing-features { list-style: none; margin-bottom: 28px; flex: 1; }
+    .pricing-features { list-style: none; margin-bottom: 20px; }
     .pricing-features li {
       font-size: 0.9375rem;
       padding: 8px 0;
@@ -307,6 +307,38 @@
       font-size: 0.6875rem;
       color: var(--accent);
     }
+
+    /* Epic-kort (Large + Enterprise). Medium behåller klassisk bullet-lista. */
+    .pricing-epics { margin-bottom: 28px; }
+    .pricing-epic {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .pricing-epic:last-child { border-bottom: none; padding-bottom: 0; }
+    .pricing-epic h4 {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 0 0 4px;
+      line-height: 1.35;
+    }
+    .pricing-epic p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin: 0 0 6px;
+    }
+    .pricing-epic .includes {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      display: block;
+    }
+    .pricing-epic .includes-label { font-style: italic; }
+
+    /* Se till att CTA-knappen alltid trycks ner mot botten även om
+       korten har olika naturliga höjder (align-items:start på grid-et
+       stretchar inte, så skillnaden syns). */
+    .pricing-card > .btn-primary { margin-top: auto; }
 
     /* ── Footer ── */
     footer {
@@ -490,12 +522,24 @@
             <li><span class="check">✓</span> <span data-i18n="pricing.large.f1">Upp till 15 användare</span></li>
             <li><span class="check">✓</span> <span data-i18n="pricing.large.f2">Upp till 50 entities</span></li>
             <li><span class="check">✓</span> <span data-i18n="pricing.large.f3">25 000 API-anrop / månad</span></li>
-            <li><span class="check">✓</span> <span data-i18n="pricing.large.f4">Excel-tillägg</span></li>
-            <li><span class="check">✓</span> <span data-i18n="pricing.large.f5">REST API med API-nycklar</span></li>
-            <li><span class="check">✓</span> <span data-i18n="pricing.large.f6">Rollbaserad access</span></li>
-            <li><span class="check">✓</span> <span data-i18n="pricing.large.f7">Audit log</span></li>
-            <li><span class="check">✓</span> <span data-i18n="pricing.large.f8">Webb-editor</span></li>
           </ul>
+          <div class="pricing-epics">
+            <div class="pricing-epic">
+              <h4 data-i18n="pricing.epic.visibility.title">Insyn i hur datan används</h4>
+              <p data-i18n="pricing.epic.visibility.body">Se vilka externa system som läser din data och när de senast synkade.</p>
+              <span class="includes"><span class="includes-label" data-i18n="pricing.epic.includes">Inkluderar</span>: <span data-i18n="pricing.epic.visibility.includes">Konsumenter</span></span>
+            </div>
+            <div class="pricing-epic">
+              <h4 data-i18n="pricing.epic.webEditor.title">Redigera data utanför Excel</h4>
+              <p data-i18n="pricing.epic.webEditor.body">Hantera poster direkt i webbläsaren när du inte vill öppna ett ark. Snabba ändringar, samma validering som Excel.</p>
+              <span class="includes"><span class="includes-label" data-i18n="pricing.epic.includes">Inkluderar</span>: <span data-i18n="pricing.epic.webEditor.includes">Webb-editor</span></span>
+            </div>
+            <div class="pricing-epic">
+              <h4 data-i18n="pricing.epic.traceability.title">Full spårbarhet över vad som ändrats</h4>
+              <p data-i18n="pricing.epic.traceability.body">Se vem som gjorde vad och när — både för schema-ändringar och dataändringar. Rulla tillbaka till en tidigare version när något blivit fel.</p>
+              <span class="includes"><span class="includes-label" data-i18n="pricing.epic.includes">Inkluderar</span>: <span data-i18n="pricing.epic.traceability.includes">Audit log, versionshistorik</span></span>
+            </div>
+          </div>
           <a href="https://app.aodity.se/onboarding.html?plan=large" class="btn-primary" style="width:100%;text-align:center;" data-i18n="pricing.getStarted">Kom igång</a>
         </div>
 
@@ -507,15 +551,39 @@
             <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f1">Obegränsat antal användare</span></li>
             <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f2">Obegränsat antal entities</span></li>
             <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f3">Obegränsade API-anrop</span></li>
-            <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f4">Excel-tillägg</span></li>
-            <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f5">REST API med API-nycklar</span></li>
-            <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f6">Rollbaserad access</span></li>
-            <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f7">Audit log</span></li>
-            <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f8">Webb-editor</span></li>
-            <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f9">Custom constraints (enum, regex, intervall, prefix)</span></li>
-            <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f10">Foreign key-validering mellan entities</span></li>
-            <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f11">Anpassad onboarding och support</span></li>
           </ul>
+          <div class="pricing-epics">
+            <div class="pricing-epic">
+              <h4 data-i18n="pricing.epic.visibility.title">Insyn i hur datan används</h4>
+              <p data-i18n="pricing.epic.visibility.body">Se vilka externa system som läser din data och när de senast synkade.</p>
+              <span class="includes"><span class="includes-label" data-i18n="pricing.epic.includes">Inkluderar</span>: <span data-i18n="pricing.epic.visibility.includes">Konsumenter</span></span>
+            </div>
+            <div class="pricing-epic">
+              <h4 data-i18n="pricing.epic.webEditor.title">Redigera data utanför Excel</h4>
+              <p data-i18n="pricing.epic.webEditor.body">Hantera poster direkt i webbläsaren när du inte vill öppna ett ark. Snabba ändringar, samma validering som Excel.</p>
+              <span class="includes"><span class="includes-label" data-i18n="pricing.epic.includes">Inkluderar</span>: <span data-i18n="pricing.epic.webEditor.includes">Webb-editor</span></span>
+            </div>
+            <div class="pricing-epic">
+              <h4 data-i18n="pricing.epic.traceability.title">Full spårbarhet över vad som ändrats</h4>
+              <p data-i18n="pricing.epic.traceability.body">Se vem som gjorde vad och när — både för schema-ändringar och dataändringar. Rulla tillbaka till en tidigare version när något blivit fel.</p>
+              <span class="includes"><span class="includes-label" data-i18n="pricing.epic.includes">Inkluderar</span>: <span data-i18n="pricing.epic.traceability.includes">Audit log, versionshistorik</span></span>
+            </div>
+            <div class="pricing-epic">
+              <h4 data-i18n="pricing.epic.dataFlow.title">Spåra var datan tar vägen</h4>
+              <p data-i18n="pricing.epic.dataFlow.body">Se vilka system som konsumerar din masterdata och vad de läser. Visualisera schemat och dess relationer som ett diagram.</p>
+              <span class="includes"><span class="includes-label" data-i18n="pricing.epic.includes">Inkluderar</span>: <span data-i18n="pricing.epic.dataFlow.includes">Konsumenter, ERD-diagram per projekt</span></span>
+            </div>
+            <div class="pricing-epic">
+              <h4 data-i18n="pricing.epic.access.title">Skräddarsy åtkomsten efter organisationen</h4>
+              <p data-i18n="pricing.epic.access.body">Ge olika team ansvar för olika projekt utan att tumma på säkerheten. Projekt-scopade roller med Project Managers som äger sina domäner.</p>
+              <span class="includes"><span class="includes-label" data-i18n="pricing.epic.includes">Inkluderar</span>: <span data-i18n="pricing.epic.access.includes">Project Manager-rollen, projekt-scopade behörigheter</span></span>
+            </div>
+            <div class="pricing-epic">
+              <h4 data-i18n="pricing.epic.quality.title">Säkerställ datakvalitet vid källan</h4>
+              <p data-i18n="pricing.epic.quality.body">Validera data mot egna regler innan den når dina system. Foreign keys, mönstermatchning, värdeintervall och tillåtna val. Sök- och relationsstöd direkt i Excel.</p>
+              <span class="includes"><span class="includes-label" data-i18n="pricing.epic.includes">Inkluderar</span>: <span data-i18n="pricing.epic.quality.includes">Custom constraints (enum, FK, regex, range, prefix), FK display-kolumn i Excel</span></span>
+            </div>
+          </div>
           <a href="mailto:hej@aodity.se" class="btn-primary" style="width:100%;text-align:center;" data-i18n="pricing.contactUs">Kontakta oss</a>
         </div>
 
