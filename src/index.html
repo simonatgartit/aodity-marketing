@@ -335,6 +335,14 @@
     }
     .pricing-epic .includes-label { font-style: italic; }
 
+    /* Arvs-indikator mellan pris och gränsbullets. Samma toning som
+       .includes under epics — subtil ledsignal, inte rubrik. */
+    .pricing-inherits {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      margin: 14px 0 12px;
+    }
+
     /* Se till att CTA-knappen alltid trycks ner mot botten även om
        korten har olika naturliga höjder (align-items:start på grid-et
        stretchar inte, så skillnaden syns). */
@@ -532,6 +540,7 @@
           <div class="pricing-badge" style="position:absolute;top:16px;right:16px;margin-bottom:0;" data-i18n="pricing.popular">Populärast</div>
           <h3 data-i18n="pricing.large.name">Large</h3>
           <div class="pricing-price"><span data-i18n="pricing.large.price">5 990 kr</span> <span data-i18n="pricing.perMonth">/ månad</span></div>
+          <p class="pricing-inherits" data-i18n="pricing.inherits.fromMedium">Allt i Medium, plus:</p>
           <ul class="pricing-features">
             <li><span class="check">✓</span> <span data-i18n="pricing.large.f1">Upp till 15 användare</span></li>
             <li><span class="check">✓</span> <span data-i18n="pricing.large.f2">Upp till 50 entities</span></li>
@@ -561,6 +570,7 @@
         <div class="pricing-card">
           <h3 data-i18n="pricing.enterprise.name">Enterprise</h3>
           <div class="pricing-price"><span data-i18n="pricing.enterprise.price">Från 14 990 kr</span> <span data-i18n="pricing.perMonth">/ månad</span></div>
+          <p class="pricing-inherits" data-i18n="pricing.inherits.fromLarge">Allt i Large, plus:</p>
           <ul class="pricing-features">
             <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f1">Obegränsat antal användare</span></li>
             <li><span class="check">✓</span> <span data-i18n="pricing.enterprise.f2">Obegränsat antal entities</span></li>
