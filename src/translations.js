@@ -52,34 +52,56 @@
       "pricing.medium.f1": "Upp till 5 användare",
       "pricing.medium.f2": "Upp till 10 entities",
       "pricing.medium.f3": "5 000 API-anrop / månad",
-      "pricing.medium.f4": "Excel-tillägg",
-      "pricing.medium.f5": "REST API med API-nycklar",
-      "pricing.medium.f6": "Rollbaserad access",
 
       "pricing.large.price": "5 990 kr",
       "pricing.large.name": "Large",
       "pricing.large.f1": "Upp till 15 användare",
       "pricing.large.f2": "Upp till 50 entities",
       "pricing.large.f3": "25 000 API-anrop / månad",
-      "pricing.large.f4": "Excel-tillägg",
-      "pricing.large.f5": "REST API med API-nycklar",
-      "pricing.large.f6": "Rollbaserad access",
-      "pricing.large.f7": "Audit log",
-      "pricing.large.f8": "Webb-editor",
 
       "pricing.enterprise.price": "Från 14 990 kr",
       "pricing.enterprise.name": "Enterprise",
       "pricing.enterprise.f1": "Obegränsat antal användare",
       "pricing.enterprise.f2": "Obegränsat antal entities",
       "pricing.enterprise.f3": "Obegränsade API-anrop",
-      "pricing.enterprise.f4": "Excel-tillägg",
-      "pricing.enterprise.f5": "REST API med API-nycklar",
-      "pricing.enterprise.f6": "Rollbaserad access",
-      "pricing.enterprise.f7": "Audit log",
-      "pricing.enterprise.f8": "Webb-editor",
-      "pricing.enterprise.f9": "Custom constraints (enum, regex, intervall, prefix)",
-      "pricing.enterprise.f10": "Foreign key-validering mellan entities",
-      "pricing.enterprise.f11": "Anpassad onboarding och support",
+
+      "pricing.epic.includes": "Inkluderar",
+
+      "pricing.epic.excel.title": "Hantera data där du redan jobbar",
+      "pricing.epic.excel.body": "Lägg till, redigera och publicera data direkt från Excel med validering.",
+      "pricing.epic.excel.includes": "Excel-tillägg",
+
+      "pricing.epic.api.title": "Gör datan tillgänglig för dina system",
+      "pricing.epic.api.body": "REST API med nyckelbaserad autentisering för att integrera mot dina verktyg.",
+      "pricing.epic.api.includes": "REST API, API-nycklar",
+
+      "pricing.epic.roles.title": "Styr vem som får göra vad",
+      "pricing.epic.roles.body": "Rollbaserad åtkomst med manager-, editor- och viewer-roller.",
+      "pricing.epic.roles.includes": "Rollbaserad access",
+
+      "pricing.epic.visibility.title": "Insyn i hur datan används",
+      "pricing.epic.visibility.body": "Se vilka externa system som läser din data.",
+      "pricing.epic.visibility.includes": "Konsumenter",
+
+      "pricing.epic.webEditor.title": "Redigera data utanför Excel",
+      "pricing.epic.webEditor.body": "Hantera poster direkt i webbläsaren när du inte vill öppna ett ark.",
+      "pricing.epic.webEditor.includes": "Webb-editor",
+
+      "pricing.epic.traceability.title": "Full spårbarhet över vad som ändrats",
+      "pricing.epic.traceability.body": "Se vem som gjorde vad och när — och rulla tillbaka om något blev fel.",
+      "pricing.epic.traceability.includes": "Audit log, versionshistorik",
+
+      "pricing.epic.dataFlow.title": "Spåra var datan tar vägen",
+      "pricing.epic.dataFlow.body": "Visualisera schemat och dess relationer som ett diagram.",
+      "pricing.epic.dataFlow.includes": "ERD-diagram per projekt",
+
+      "pricing.epic.access.title": "Skräddarsy åtkomsten efter organisationen",
+      "pricing.epic.access.body": "Ge olika team ansvar för olika projekt, med Project Managers som äger sina domäner.",
+      "pricing.epic.access.includes": "Project Manager-rollen, projekt-scopade behörigheter",
+
+      "pricing.epic.quality.title": "Säkerställ datakvalitet vid källan",
+      "pricing.epic.quality.body": "Validera data mot egna regler innan den når dina system — foreign keys, mönster, intervall, val.",
+      "pricing.epic.quality.includes": "Custom constraints (enum, FK, regex, range, prefix), FK display-kolumn i Excel",
 
       "footer.copy": "© 2026 GartIT AB. Alla rättigheter förbehållna.",
       "footer.terms": "Villkor"
@@ -136,34 +158,56 @@
       "pricing.medium.f1": "Up to 5 users",
       "pricing.medium.f2": "Up to 10 entities",
       "pricing.medium.f3": "5,000 API calls / month",
-      "pricing.medium.f4": "Excel add-in",
-      "pricing.medium.f5": "REST API with API keys",
-      "pricing.medium.f6": "Role-based access",
 
       "pricing.large.price": "5,990 SEK",
       "pricing.large.name": "Large",
       "pricing.large.f1": "Up to 15 users",
       "pricing.large.f2": "Up to 50 entities",
       "pricing.large.f3": "25,000 API calls / month",
-      "pricing.large.f4": "Excel add-in",
-      "pricing.large.f5": "REST API with API keys",
-      "pricing.large.f6": "Role-based access",
-      "pricing.large.f7": "Audit log",
-      "pricing.large.f8": "Web editor",
 
       "pricing.enterprise.price": "From 14,990 SEK",
       "pricing.enterprise.name": "Enterprise",
       "pricing.enterprise.f1": "Unlimited users",
       "pricing.enterprise.f2": "Unlimited entities",
       "pricing.enterprise.f3": "Unlimited API calls",
-      "pricing.enterprise.f4": "Excel add-in",
-      "pricing.enterprise.f5": "REST API with API keys",
-      "pricing.enterprise.f6": "Role-based access",
-      "pricing.enterprise.f7": "Audit log",
-      "pricing.enterprise.f8": "Web editor",
-      "pricing.enterprise.f9": "Custom constraints (enum, regex, ranges, prefixes)",
-      "pricing.enterprise.f10": "Foreign key validation between entities",
-      "pricing.enterprise.f11": "Tailored onboarding and support",
+
+      "pricing.epic.includes": "Includes",
+
+      "pricing.epic.excel.title": "Manage data where you already work",
+      "pricing.epic.excel.body": "Add, edit, and publish data directly from Excel with validation.",
+      "pricing.epic.excel.includes": "Excel add-in",
+
+      "pricing.epic.api.title": "Make your data available to your systems",
+      "pricing.epic.api.body": "REST API with key-based authentication to integrate with your tools.",
+      "pricing.epic.api.includes": "REST API, API keys",
+
+      "pricing.epic.roles.title": "Control who can do what",
+      "pricing.epic.roles.body": "Role-based access with manager, editor, and viewer roles.",
+      "pricing.epic.roles.includes": "Role-based access",
+
+      "pricing.epic.visibility.title": "Visibility into how your data is used",
+      "pricing.epic.visibility.body": "See which external systems read your data.",
+      "pricing.epic.visibility.includes": "Consumers",
+
+      "pricing.epic.webEditor.title": "Edit data outside Excel",
+      "pricing.epic.webEditor.body": "Manage records directly in the browser when you don't want to open a sheet.",
+      "pricing.epic.webEditor.includes": "Web editor",
+
+      "pricing.epic.traceability.title": "Full traceability of what changed",
+      "pricing.epic.traceability.body": "See who changed what and when — and roll back if something went wrong.",
+      "pricing.epic.traceability.includes": "Audit log, version history",
+
+      "pricing.epic.dataFlow.title": "Track where your data goes",
+      "pricing.epic.dataFlow.body": "Visualize your schema and its relationships as a diagram.",
+      "pricing.epic.dataFlow.includes": "ERD diagram per project",
+
+      "pricing.epic.access.title": "Tailor access to your organization",
+      "pricing.epic.access.body": "Give different teams ownership of different projects, with Project Managers who own their domains.",
+      "pricing.epic.access.includes": "Project Manager role, project-scoped permissions",
+
+      "pricing.epic.quality.title": "Ensure data quality at the source",
+      "pricing.epic.quality.body": "Validate data against your own rules before it reaches your systems — foreign keys, patterns, ranges, choices.",
+      "pricing.epic.quality.includes": "Custom constraints (enum, FK, regex, range, prefix), FK display column in Excel",
 
       "footer.copy": "© 2026 GartIT AB. All rights reserved.",
       "footer.terms": "Terms"
