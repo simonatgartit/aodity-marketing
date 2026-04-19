@@ -65,6 +65,9 @@
       "pricing.enterprise.f2": "Obegränsat antal entities",
       "pricing.enterprise.f3": "Obegränsade API-anrop",
 
+      "pricing.inherits.fromMedium": "Allt i Medium, plus:",
+      "pricing.inherits.fromLarge": "Allt i Large, plus:",
+
       "pricing.epic.includes": "Inkluderar",
 
       "pricing.epic.excel.title": "Hantera data där du redan jobbar",
@@ -170,6 +173,9 @@
       "pricing.enterprise.f1": "Unlimited users",
       "pricing.enterprise.f2": "Unlimited entities",
       "pricing.enterprise.f3": "Unlimited API calls",
+
+      "pricing.inherits.fromMedium": "Everything in Medium, plus:",
+      "pricing.inherits.fromLarge": "Everything in Large, plus:",
 
       "pricing.epic.includes": "Includes",
 
