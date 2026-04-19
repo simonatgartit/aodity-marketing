@@ -325,6 +325,7 @@
       gap: 12px;
     }
     .footer-copy { font-size: 0.875rem; color: var(--text-secondary); }
+    .footer-links { display: inline-flex; gap: 16px; align-items: center; }
     .footer-link { font-size: 0.875rem; color: var(--accent); }
     .footer-link:hover { text-decoration: underline; }
 
@@ -527,7 +528,10 @@
   <footer>
     <div class="footer-inner">
       <span class="footer-copy" data-i18n="footer.copy">© 2026 GartIT AB. Alla rättigheter förbehållna.</span>
-      <a href="https://aodity.se" class="footer-link">aodity.se</a>
+      <span class="footer-links">
+        <a href="/villkor" class="footer-link" data-i18n="footer.terms">Villkor</a>
+        <a href="https://aodity.se" class="footer-link">aodity.se</a>
+      </span>
     </div>
   </footer>
 

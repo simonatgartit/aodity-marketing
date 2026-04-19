@@ -81,7 +81,8 @@
       "pricing.enterprise.f10": "Foreign key-validering mellan entities",
       "pricing.enterprise.f11": "Anpassad onboarding och support",
 
-      "footer.copy": "© 2026 GartIT AB. Alla rättigheter förbehållna."
+      "footer.copy": "© 2026 GartIT AB. Alla rättigheter förbehållna.",
+      "footer.terms": "Villkor"
     },
 
     en: {
@@ -164,7 +165,8 @@
       "pricing.enterprise.f10": "Foreign key validation between entities",
       "pricing.enterprise.f11": "Tailored onboarding and support",
 
-      "footer.copy": "© 2026 GartIT AB. All rights reserved."
+      "footer.copy": "© 2026 GartIT AB. All rights reserved.",
+      "footer.terms": "Terms"
     }
   };
 

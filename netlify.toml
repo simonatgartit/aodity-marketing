@@ -1,0 +1,10 @@
+# Netlify configuration for aodity.se (marketing site)
+#
+# The actual build/deploy is done via GitHub Actions (see .github/workflows/deploy.yml),
+# which runs `netlify-cli deploy --prod --dir=dist`. This file is picked up from
+# the project root and its redirects/headers are uploaded with the deploy.
+
+[[redirects]]
+  from = "/villkor"
+  to = "/villkor.html"
+  status = 200

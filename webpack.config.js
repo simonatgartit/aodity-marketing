@@ -20,6 +20,10 @@ module.exports = {
           from: "src/translations.js",
           to: "translations.js",
         },
+        {
+          from: "netlify.toml",
+          to: "netlify.toml",
+        },
       ],
     }),
   ],
